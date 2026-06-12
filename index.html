@@ -305,7 +305,7 @@
                 container.appendChild(div);
             }
             setupScrollListener(columnId, type);
-            setupMouseDrag(container); // تفعيل السحب بالماوس
+            setupMouseDrag(container); 
         }
 
         function setupScrollListener(columnId, type) {
@@ -332,7 +332,6 @@
             });
         }
 
-        // --- دالة السحب والإفلات بالماوس ---
         function setupMouseDrag(container) {
             let isDown = false;
             let startY;
@@ -342,13 +341,13 @@
                 isDown = true;
                 startY = e.pageY - container.offsetTop;
                 scrollTop = container.scrollTop;
-                container.style.scrollSnapType = 'none'; // تعطيل السناب أثناء السحب ليكون سلساً
+                container.style.scrollSnapType = 'none'; 
             });
 
             container.addEventListener('mouseleave', () => {
                 if(!isDown) return;
                 isDown = false;
-                container.style.scrollSnapType = 'y mandatory'; // إرجاع السناب عند ترك الماوس
+                container.style.scrollSnapType = 'y mandatory'; 
                 snapToClosest(container);
             });
 
@@ -363,7 +362,7 @@
                 if (!isDown) return;
                 e.preventDefault();
                 const y = e.pageY - container.offsetTop;
-                const walk = (y - startY) * 1.5; // سرعة سحب الماوس
+                const walk = (y - startY) * 1.5; 
                 container.scrollTop = scrollTop - walk;
             });
         }
